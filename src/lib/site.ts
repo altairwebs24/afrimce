@@ -1,16 +1,8 @@
-import logo from "@/assets/IMG-20261021-WA0014.jpg.asset.json";
-import video from "@/assets/VID-20261021-WA0019.mp4.asset.json";
-import i1 from "@/assets/IMG-20261021-WA0001.jpg.asset.json";
-import i3 from "@/assets/IMG-20261021-WA0003.jpg.asset.json";
-import i4 from "@/assets/IMG-20261021-WA0004.jpg.asset.json";
-import i5 from "@/assets/IMG-20261021-WA0005.jpg.asset.json";
-import i6 from "@/assets/IMG-20261021-WA0006.jpg.asset.json";
-import i7 from "@/assets/IMG-20261021-WA0007.jpg.asset.json";
-import i8 from "@/assets/IMG-20261021-WA0008.jpg.asset.json";
-import i9 from "@/assets/IMG-20261021-WA0009.jpg.asset.json";
+const SUPABASE_URL = import.meta.env["VITE_SUPABASE_URL"] as string;
+const media = (name: string) => `${SUPABASE_URL}/storage/v1/object/public/media/${name}`;
 
-export const logoUrl = logo.url;
-export const heroVideo = video.url;
+export const logoUrl = media("IMG-20261021-WA0014.jpg");
+export const heroVideo = media("VID-20261021-WA0019.mp4");
 
 export const contact = {
   phone: "069 352 4476",
@@ -23,14 +15,14 @@ export const contact = {
 export type Project = { img: string; category: string; title: string; description: string };
 
 export const projects: Project[] = [
-  { img: i6.url, category: "TV Stands", title: "The Marble Lounge", description: "A floating white TV unit framed by a book-matched marble wall, warm oak slats and backlit display shelving." },
-  { img: i9.url, category: "Wardrobes", title: "Gilded Glass Wardrobe", description: "Floor-to-ceiling wardrobes with smoked-glass, black-framed doors and soft golden interior lighting." },
-  { img: i8.url, category: "Kitchens", title: "The Island Kitchen", description: "A waterfall-edge island with walnut accents, pendant lighting and a sculpted bulkhead ceiling." },
-  { img: i5.url, category: "Kitchens", title: "Ivory & Smoke", description: "Handleless gloss cabinetry, smoked-glass wall units and cove lighting over marble-look floors." },
-  { img: i4.url, category: "TV Stands", title: "Noir Slat Media Wall", description: "Charcoal acoustic slats behind a crisp white panel and a long, floating gloss console." },
-  { img: i3.url, category: "Interior Design", title: "Timber Pantry Wall", description: "Full-height oak cladding housing an integrated fridge and an illuminated glass display cabinet." },
-  { img: i7.url, category: "Kitchens", title: "Rouge Kitchen", description: "A bold red gloss kitchen with a curved granite island, gas hob and a statement red ceiling." },
-  { img: i1.url, category: "TV Stands", title: "Walnut Media Console", description: "A low walnut-and-white TV stand set against a dark textured feature wall." },
+  { img: media("IMG-20261021-WA0006.jpg"), category: "TV Stands", title: "The Marble Lounge", description: "A floating white TV unit framed by a book-matched marble wall, warm oak slats and backlit display shelving." },
+  { img: media("IMG-20261021-WA0009.jpg"), category: "Wardrobes", title: "Gilded Glass Wardrobe", description: "Floor-to-ceiling wardrobes with smoked-glass, black-framed doors and soft golden interior lighting." },
+  { img: media("IMG-20261021-WA0008.jpg"), category: "Kitchens", title: "The Island Kitchen", description: "A waterfall-edge island with walnut accents, pendant lighting and a sculpted bulkhead ceiling." },
+  { img: media("IMG-20261021-WA0005.jpg"), category: "Kitchens", title: "Ivory & Smoke", description: "Handleless gloss cabinetry, smoked-glass wall units and cove lighting over marble-look floors." },
+  { img: media("IMG-20261021-WA0004.jpg"), category: "TV Stands", title: "Noir Slat Media Wall", description: "Charcoal acoustic slats behind a crisp white panel and a long, floating gloss console." },
+  { img: media("IMG-20261021-WA0003.jpg"), category: "Interior Design", title: "Timber Pantry Wall", description: "Full-height oak cladding housing an integrated fridge and an illuminated glass display cabinet." },
+  { img: media("IMG-20261021-WA0007.jpg"), category: "Kitchens", title: "Rouge Kitchen", description: "A bold red gloss kitchen with a curved granite island, gas hob and a statement red ceiling." },
+  { img: media("IMG-20261021-WA0001.jpg"), category: "TV Stands", title: "Walnut Media Console", description: "A low walnut-and-white TV stand set against a dark textured feature wall." },
 ];
 
 // Homepage selection: last two images, the second image, plus one more
