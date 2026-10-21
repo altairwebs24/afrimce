@@ -43,7 +43,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         )}
       </header>
       <main>{children}</main>
-      <footer className="border-t bg-ink">
+      <footer className="border-t bg-secondary">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-3">
           <div>
             <p className="font-display text-3xl tracking-[0.2em] text-gold-gradient">AFRIMCE</p>

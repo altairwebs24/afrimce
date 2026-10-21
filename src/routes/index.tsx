@@ -64,7 +64,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-y bg-ink">
+      <section className="border-y bg-secondary">
         <div className="mx-auto max-w-4xl px-6 py-24 text-center">
           <h2 className="text-4xl md:text-6xl">Let's design your <em className="font-serif text-gold-gradient">next space</em></h2>
           <p className="mt-6 text-muted-foreground">Call {contact.phone} or email {contact.email}</p>

@@ -37,30 +37,30 @@
 
 :root {
   --radius: 0.125rem;
-  --background: oklch(0.15 0.005 60);
-  --foreground: oklch(0.94 0.015 85);
-  --ink: oklch(0.11 0.004 60);
-  --ivory: oklch(0.95 0.02 85);
-  --card: oklch(0.19 0.006 60);
-  --card-foreground: oklch(0.94 0.015 85);
-  --popover: oklch(0.19 0.006 60);
-  --popover-foreground: oklch(0.94 0.015 85);
-  --gold: oklch(0.78 0.11 80);
-  --primary: oklch(0.78 0.11 80);
-  --primary-foreground: oklch(0.13 0.005 60);
-  --secondary: oklch(0.24 0.008 60);
-  --secondary-foreground: oklch(0.94 0.015 85);
-  --muted: oklch(0.22 0.006 60);
-  --muted-foreground: oklch(0.7 0.02 80);
-  --accent: oklch(0.45 0.16 25);
-  --accent-foreground: oklch(0.95 0.02 85);
+  --background: oklch(0.985 0.003 60);
+  --foreground: oklch(0.24 0.01 250);
+  --ink: oklch(0.22 0.01 250);
+  --ivory: oklch(0.98 0.003 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.01 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.01 250);
+  --gold: oklch(0.46 0.17 25);
+  --primary: oklch(0.46 0.17 25);
+  --primary-foreground: oklch(0.98 0.003 60);
+  --secondary: oklch(0.95 0.004 60);
+  --secondary-foreground: oklch(0.24 0.01 250);
+  --muted: oklch(0.95 0.004 60);
+  --muted-foreground: oklch(0.48 0.01 250);
+  --accent: oklch(0.46 0.17 25);
+  --accent-foreground: oklch(0.98 0.003 60);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.78 0.11 80 / 18%);
-  --input: oklch(0.78 0.11 80 / 25%);
-  --ring: oklch(0.78 0.11 80);
-  --gradient-gold: linear-gradient(120deg, oklch(0.66 0.1 70), oklch(0.86 0.1 88), oklch(0.7 0.11 75));
-  --gradient-veil: linear-gradient(to top, oklch(0.11 0.004 60 / 92%), oklch(0.11 0.004 60 / 25%) 55%, transparent);
+  --border: oklch(0.24 0.01 250 / 14%);
+  --input: oklch(0.24 0.01 250 / 20%);
+  --ring: oklch(0.46 0.17 25);
+  --gradient-gold: linear-gradient(120deg, oklch(0.4 0.16 25), oklch(0.55 0.19 27), oklch(0.42 0.16 24));
+  --gradient-veil: linear-gradient(to top, oklch(0.18 0.01 250 / 92%), oklch(0.18 0.01 250 / 30%) 55%, transparent);
 }
 
 @layer base {
@@ -93,7 +93,7 @@
   padding: .95rem 2rem; font-size: .75rem; letter-spacing: .25em; text-transform: uppercase;
   background: var(--gradient-gold); color: var(--primary-foreground);
   transition: transform .3s, box-shadow .3s;
-  &:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -10px oklch(0.78 0.11 80 / 55%); }
+  &:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -10px oklch(0.46 0.17 25 / 45%); }
 }
 @utility btn-outline-gold {
   display: inline-flex; align-items: center; gap: .6rem;
