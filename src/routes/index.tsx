@@ -38,15 +38,10 @@ function Index() {
 
       <section className="mx-auto max-w-7xl px-6 py-24">
         <p className="eyebrow">What we craft</p>
-        <div className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">
-          {services.map((s, i) => (
-            <div key={s.title} className="bg-background p-8">
-              <p className="font-serif text-gold">0{i + 1}</p>
-              <h3 className="mt-4 text-2xl">{s.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{s.text}</p>
-            </div>
-          ))}
-        </div>
+        <p className="mt-6 max-w-3xl font-display text-3xl leading-snug md:text-4xl">
+          {services.map((s) => s.title).join(" · ")}
+        </p>
+        <Link to="/services" className="mt-8 inline-block text-xs uppercase tracking-[0.25em] text-gold">Explore services →</Link>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
@@ -64,7 +59,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-y bg-ink">
+      <section className="border-y bg-secondary">
         <div className="mx-auto max-w-4xl px-6 py-24 text-center">
           <h2 className="text-4xl md:text-6xl">Let's design your <em className="font-serif text-gold-gradient">next space</em></h2>
           <p className="mt-6 text-muted-foreground">Call {contact.phone} or email {contact.email}</p>
