@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/SiteLayout";
 import { projects, services } from "@/lib/site";
 
-const imgs = [projects[5].img, projects[2].img, projects[1].img, projects[3].img, projects[0].img];
+const imgs = [projects[5]!.img, projects[2]!.img, projects[1]!.img, projects[3]!.img, projects[0]!.img];
 
 export const Route = createFileRoute("/services")({
   head: () => ({

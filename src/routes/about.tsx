@@ -21,7 +21,7 @@ function About() {
     <SiteLayout>
       <PageHeader eyebrow="Our Story" title="Designed with intent, built to last" />
       <section className="mx-auto grid max-w-7xl items-center gap-14 px-6 pb-24 md:grid-cols-2">
-        <img src={projects[5].img} alt="Oak pantry wall by AfriMce" className="aspect-[4/5] w-full object-cover" />
+        <img src={projects[5]!.img} alt="Oak pantry wall by AfriMce" className="aspect-[4/5] w-full object-cover" />
         <div className="space-y-6 text-muted-foreground">
           <p className="font-display text-3xl leading-snug text-foreground">AfriMce (Pty) Ltd is a Mokopane-based interior studio creating homes that feel considered, calm and unmistakably refined.</p>
           <p>From the first sketch to the final installation, we handle every detail — selecting finishes, manufacturing cabinetry and fitting each piece with precision.</p>

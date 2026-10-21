@@ -34,7 +34,7 @@ export const projects: Project[] = [
 ];
 
 // Homepage selection: last two images, the second image, plus one more
-export const featured = [projects[0], projects[1], projects[2], projects[3]];
+export const featured = [projects[0]!, projects[1]!, projects[2]!, projects[3]!];
 
 export const services = [
   { title: "Interior Design", text: "Complete spaces conceived around how you live — layout, lighting, finishes and detail." },
