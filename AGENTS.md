@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Site media (photos + hero video) live in the public `media` storage bucket; reference via `media(name)` in src/lib/site.ts, not bundled asset pointers.
+- Customer reviews are stored in Lovable Cloud, read and submitted through validated public server functions using the publishable client and RLS; homepage reads use TanStack Query loader hydration so submissions persist across visitors.

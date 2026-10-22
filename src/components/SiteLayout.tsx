@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { contact, logoUrl } from "@/lib/site";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -15,10 +17,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen">
       <header className="fixed inset-x-0 top-0 z-50 border-b bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logoUrl} alt="AfriMce logo" className="h-10 w-10 rounded-full object-cover" />
-            <span className="font-display text-2xl tracking-[0.2em] text-gold-gradient">AFRIMCE</span>
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+          <Link to="/" className="flex shrink-0 items-center gap-3 md:gap-4" aria-label="AfriMce home">
+            <img src={logoUrl} alt="AfriMce logo" className="h-16 w-16 object-contain md:h-20 md:w-20" />
+            <span className="font-display text-3xl font-semibold text-primary md:text-4xl">AFRIMCE</span>
           </Link>
           <nav className="hidden gap-8 md:flex">
             {nav.map((n) => (
@@ -29,9 +31,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               </Link>
             ))}
           </nav>
-          <button className="eyebrow md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
-            {open ? "Close" : "Menu"}
-          </button>
+          <Button variant="ghost" size="icon" className="shrink-0 md:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
+            {open ? <X /> : <Menu />}
+          </Button>
         </div>
         {open && (
           <nav className="flex flex-col gap-5 border-t px-6 py-6 md:hidden">
@@ -46,12 +48,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <footer className="border-t bg-secondary">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-3">
           <div>
-            <p className="font-display text-3xl tracking-[0.2em] text-gold-gradient">AFRIMCE</p>
+            <Link to="/" className="flex items-center gap-4"><img src={logoUrl} alt="AfriMce logo" className="h-20 w-20 object-contain" /><span className="font-display text-4xl font-semibold text-primary">AFRIMCE</span></Link>
             <p className="mt-3 text-sm text-muted-foreground">Luxury interiors, kitchens, wardrobes, vanities & TV stands — crafted in Mokopane.</p>
           </div>
           <div className="space-y-2 text-sm">
             <p className="eyebrow mb-4">Contact</p>
             <a href={contact.phoneHref} className="block hover:text-gold">{contact.phone}</a>
+            <a href={contact.additionalPhoneHref} className="block hover:text-gold">{contact.additionalPhone}</a>
             <a href={`mailto:${contact.email}`} className="block hover:text-gold">{contact.email}</a>
             <p className="text-muted-foreground">{contact.location}</p>
           </div>

@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/SiteLayout";
 import { contact } from "@/lib/site";
+import { ReviewForm } from "@/components/Reviews";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact AfriMce — Mokopane Interior Design" },
-      { name: "description", content: "Call 069 352 4476 or email aprilmcephe@gmail.com. AfriMce is based in Mokopane." },
+      { name: "description", content: "Call 069 352 4476 or 063 061 2069, or email aprilmcephe@gmail.com. AfriMce is based in Mokopane." },
       { property: "og:title", content: "Contact AfriMce" },
       { property: "og:description", content: "Get in touch with AfriMce in Mokopane." },
       { property: "og:type", content: "website" },
@@ -19,6 +20,7 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const items = [
     { label: "Call", value: contact.phone, href: contact.phoneHref },
+    { label: "Call — additional number", value: contact.additionalPhone, href: contact.additionalPhoneHref },
     { label: "WhatsApp", value: contact.phone, href: contact.whatsapp },
     { label: "Email", value: contact.email, href: `mailto:${contact.email}` },
     { label: "Location", value: contact.location },
@@ -40,6 +42,7 @@ function Contact() {
         <iframe title="AfriMce location — Mokopane" className="min-h-[420px] w-full border grayscale"
           src="https://www.google.com/maps?q=Mokopane,Limpopo&output=embed" loading="lazy" />
       </section>
+      <section className="border-t bg-secondary px-6 py-16 text-center"><h2 className="mb-6 text-3xl">Already worked with AfriMce?</h2><ReviewForm /></section>
     </SiteLayout>
   );
 }
