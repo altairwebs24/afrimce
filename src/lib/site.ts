@@ -1,7 +1,7 @@
 const SUPABASE_URL = import.meta.env["VITE_SUPABASE_URL"] as string;
 const media = (name: string) => `${SUPABASE_URL}/storage/v1/object/public/media/${name}`;
 
-export const logoUrl = media("IMG-20261021-WA0014.jpg");
+export const logoUrl = media("logo.png");
 export const heroVideo = media("VID-20261021-WA0019.mp4");
 
 export const contact = {
