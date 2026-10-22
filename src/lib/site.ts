@@ -7,6 +7,8 @@ export const heroVideo = media("VID-20261021-WA0019.mp4");
 export const contact = {
   phone: "069 352 4476",
   phoneHref: "tel:+27693524476",
+  additionalPhone: "063 061 2069",
+  additionalPhoneHref: "tel:+27630612069",
   whatsapp: "https://wa.me/27693524476",
   email: "aprilmcephe@gmail.com",
   location: "Mokopane, Limpopo",
@@ -26,7 +28,7 @@ export const projects: Project[] = [
 ];
 
 // Homepage selection: last two images, the second image, plus one more
-export const featured = [projects[0]!, projects[1]!, projects[2]!, projects[3]!];
+export const featured = projects.slice(0, 4);
 
 export const services = [
   { title: "Interior Design", text: "Complete spaces conceived around how you live — layout, lighting, finishes and detail." },

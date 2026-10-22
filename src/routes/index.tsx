@@ -2,8 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ProjectCard } from "@/components/ProjectCard";
 import { featured, heroVideo, services, contact } from "@/lib/site";
+import { Reviews } from "@/components/Reviews";
+import { reviewsQueryOptions } from "@/lib/reviews.query";
 
 export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(reviewsQueryOptions),
   head: () => ({
     meta: [
       { title: "AfriMce — Luxury Interiors, Kitchens & Wardrobes in Mokopane" },
@@ -59,10 +62,12 @@ function Index() {
         </div>
       </section>
 
+      <Reviews />
+
       <section className="border-y bg-secondary">
         <div className="mx-auto max-w-4xl px-6 py-24 text-center">
           <h2 className="text-4xl md:text-6xl">Let's design your <em className="font-serif text-gold-gradient">next space</em></h2>
-          <p className="mt-6 text-muted-foreground">Call {contact.phone} or email {contact.email}</p>
+           <p className="mt-6 text-muted-foreground">Call <a href={contact.phoneHref} className="hover:text-primary">{contact.phone}</a> or <a href={contact.additionalPhoneHref} className="hover:text-primary">{contact.additionalPhone}</a><br /><a href={`mailto:${contact.email}`} className="break-all hover:text-primary">{contact.email}</a></p>
           <Link to="/contact" className="btn-gold mt-10">Get in Touch</Link>
         </div>
       </section>
