@@ -1,4 +1,4 @@
-const SUPABASE_URL = import.meta.env["VITE_SUPABASE_URL"] as string;
+const SUPABASE_URL = (import.meta.env["VITE_SUPABASE_URL"] as string | undefined) || "https://fvccmmqlgsdqxblvpsjv.supabase.co";
 const media = (name: string) => `${SUPABASE_URL}/storage/v1/object/public/media/${name}`;
 
 export const logoUrl = media("logo.png");

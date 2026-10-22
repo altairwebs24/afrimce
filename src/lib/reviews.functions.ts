@@ -3,6 +3,10 @@ import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 import { reviewSchema, type ReviewInput } from "./reviews";
 
+// Public (publishable) values: fallbacks so self-hosted deploys without env vars still work.
+const PUBLIC_URL = () => process.env["SUPABASE_URL"] || "https://fvccmmqlgsdqxblvpsjv.supabase.co";
+const PUBLIC_KEY = () => process.env["SUPABASE_PUBLISHABLE_KEY"] || "sb_publishable_QFQwssGMsDDBagBW3Km3Mw_E_9yUTPf";
+
 function publicClient(url: string, key: string) {
   return createClient<Database>(url, key, {
     auth: { persistSession: false, autoRefreshToken: false },
@@ -16,7 +20,7 @@ function publicClient(url: string, key: string) {
 }
 
 export const listReviews = createServerFn({ method: "GET" }).handler(async () => {
-  const client = publicClient(process.env["SUPABASE_URL"]!, process.env["SUPABASE_PUBLISHABLE_KEY"]!);
+  const client = publicClient(PUBLIC_URL(), PUBLIC_KEY());
   const { data, error } = await client.from("customer_reviews").select("id,name,rating,comment,created_at")
     .order("created_at", { ascending: false }).order("name").limit(100);
   return { reviews: data ?? [], error: error ? "Reviews are temporarily unavailable." : null };
@@ -25,7 +29,7 @@ export const listReviews = createServerFn({ method: "GET" }).handler(async () =>
 export const submitReview = createServerFn({ method: "POST" })
   .inputValidator((input: ReviewInput) => reviewSchema.parse(input))
   .handler(async ({ data }) => {
-    const client = publicClient(process.env["SUPABASE_URL"]!, process.env["SUPABASE_PUBLISHABLE_KEY"]!);
+    const client = publicClient(PUBLIC_URL(), PUBLIC_KEY());
     const { error } = await client.from("customer_reviews").insert(data);
     if (error) return { ok: false, error: error.code === "23505" ? "This review has already been submitted." : "Your review could not be saved. Please try again." };
     return { ok: true, error: null };
